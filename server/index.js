@@ -80,6 +80,7 @@ app.put('/api/restaurants/:restaurantId', (req, res) => {
       if(err) {
         res.send(err);
       }
+
       Restaurant
         .findOne({yelpId: req.params.restaurantId}, function(err, doc) {
           if(err) {
@@ -91,26 +92,16 @@ app.put('/api/restaurants/:restaurantId', (req, res) => {
   );
 })
 
-// app.put('/api/restaurants', (req, res) => {
-// 	if((Restaurant.find({'yelpId': req.body.yelpId}).count()) > 0) {
-// 		// throw new Error('Woah kid, that\'s already an entry');
-// 		res.status(500);
-// 	}
-// 	else {
-// 		const {name, ingredients, instructions, cookingTime} = req.body.recipes[0];
-// 		Restaurant
-// 			.findOneandUpdate(
-// 				{yelpId: req.body.yelpId},
-// 				{$set: {recipes: [ name, ingredients, instructions, cookingTime ]}
-// 			})
-// 			.then(restaurant => {
-// 				res.status(201).json(restaurant.apiRepr());
-// 			})
-// .catch(err => {
-// 	res.status(500).json({error: '⛔ You really did it now ⛔'})
-// 			})
-// 		}
-// })
+// delete recipe from restaurant
+// app.put('/api/recipes/:id/:recipe', (req, res) => {
+//   console.log(req.params);
+//   Restaurant.findOneAndUpdate({yelpId: req.params.id},
+//                               {$pull: {"recipes": req.body}})
+//             .then(updated => {
+//               res.status(202).json({'message':'successful update or delete'})
+//             })
+//
+// });
 
 app.get('/api/restaurants/:id', (req, res) => {
   Restaurant

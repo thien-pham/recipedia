@@ -14,6 +14,8 @@ export const SUBMIT_RECIPE_FAILURE = 'SUBMIT_RECIPE_FAILURE'
 export const submitRecipeFailure = (errorMessage) => ({type: SUBMIT_RECIPE_FAILURE, errorMessage})
 export const SUBMIT_RECIPE_SUCCESS = 'SUBMIT_RECIPE_SUCCESS'
 export const submitRecipeSuccess = (restaurant) => ({type: SUBMIT_RECIPE_SUCCESS, restaurant})
+export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS'
+export const deleteRecipeSuccess = (recipes) => ({type: DELETE_RECIPE_SUCCESS, recipes})
 
 const headers = {
   'Accept': 'application/json',
@@ -62,3 +64,17 @@ export const submitRecipe = (recipe, restaurantId) => dispatch => {
     return dispatch(fetchRecipes(data.yelpId))
   })
 }
+
+// export const deleteRecipe = (name, restaurantId) => dispatch => {
+//   console.log(name, restaurantId);
+//   dispatch(fetchRestaurantRequest());
+//   fetch(`/api/recipes/${restaurantId}/${name}`, {
+//     method: 'put',
+//     headers
+//   })
+//   .then(res => res.json())
+//   .then(data => {
+//     dispatch(deleteRecipeSuccess(data))
+//     return dispatch(fetchRecipes(data.yelpId))
+//   })
+// }

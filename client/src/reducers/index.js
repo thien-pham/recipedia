@@ -7,7 +7,8 @@ import {
   FETCH_RECIPE_SUCCESS,
   SELECT_RESTAURANT,
   SUBMIT_RECIPE_SUCCESS,
-  SUBMIT_RECIPE_FAILURE
+  SUBMIT_RECIPE_FAILURE,
+  DELETE_RECIPE_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -66,6 +67,13 @@ const reducer = (state = initialState, action) => {
       haveRecipe: true,
       error: null
     }
+    // case DELETE_RECIPE_SUCCESS:
+    // return {
+    //   ...state,
+    //   currentRecipes: {...state.currentRecipes.recipes.slice(0, action.recipes)},
+    //   loading: false,
+    //   error: null
+    // }
     case SELECT_RESTAURANT:
       return {
         ...state,

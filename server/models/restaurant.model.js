@@ -8,7 +8,31 @@ const restaurantSchema = mongoose.Schema({
     required: true,
     index: true
   },
-  recipes: Array
+  recipes: [{
+   name: {
+     type: String,
+     required: true,
+     unique: true
+   },
+   ingredients: {
+     type: String,
+     required: true
+   },
+   instructions: {
+     type: String,
+     required: true
+   },
+   cookingTime: {
+     type: Number
+   },
+   photo: {
+     type: String
+   },
+   created: {
+     type: Date,
+     default: Date.now
+   }
+ }]
 })
 
 restaurantSchema.statics = {
