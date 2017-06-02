@@ -281,8 +281,8 @@
       .ind-recipes-container li .image-container img {
         border-radius: 0 !important;
         min-width: 100%;
-        min-height: 100%;
-        flex-shrink: 0; }
+        flex-shrink: 0;
+        min-height: 100%; }
 
 .recipe-form {
   display: flex;
