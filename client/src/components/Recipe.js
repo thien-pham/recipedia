@@ -13,12 +13,15 @@ class Recipe extends React.Component {
       return <p>{this.props.errorMessage}</p>
     }
     const recipesList = this.props.recipes.map((recipe, index) => {
-      const {name, ingredients, cookingTime, instructions} = recipe;
+      const {name, ingredients, cookingTime, instructions, photo} = recipe;
       return <li key={index}>
+        <div className="image-container">
+          <img src={photo} alt=""/>
+        </div>
         <p className="name">{name}</p>
-        <p className="ingredients">{ingredients}</p>
-        <p className="instructions">{instructions}</p>
-        <p className="cookingTime">{cookingTime}</p>
+        <p className="ingredients">What you'll need: {ingredients}</p>
+        <p className="instructions">Cooking Instruction: {instructions}</p>
+        <p className="cookingTime">{cookingTime} minutes</p>
       </li>
     })
     return (
