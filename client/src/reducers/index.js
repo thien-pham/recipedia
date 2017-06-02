@@ -16,6 +16,7 @@ const initialState = {
   error: null,
   selectRestaurant: null,
   haveRecipe: false,
+  listingsShowing: false,
   currentRecipes: {
     recipes: [],
     _id: null,
@@ -28,19 +29,22 @@ const reducer = (state = initialState, action) => {
     case FETCH_RESTAURANT_REQUEST:
       return {
         ...state,
-        currentRecipes: {...state.currentRecipes}
+        currentRecipes: {...state.currentRecipes},
+        listingsShowing: true
       }
 
     case FETCH_RESTAURANT_FAILURE:
       return Object.assign({}, state, {
         loading: false,
-        error: true
+        error: true,
+        listingsShowing: false
       })
     case FETCH_RESTAURANT_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
         error: null,
-        restaurants: action.restaurants
+        restaurants: action.restaurants,
+        listingsShowing: true
       })
     case FETCH_RECIPE_FAILURE:
       return Object.assign({}, state, {

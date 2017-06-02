@@ -16,10 +16,15 @@ export class RestaurantListing extends React.Component {
       return (
         <Link key={index} to={`/${restaurant.id}`} onClick={e => this._selectRestaurant(restaurant)}>
           <li className="restaurant-container">
-            <img src={restaurant.image_url} />
-            <p>{restaurant.name}</p>
-            <p>{restaurant.price}</p>
-            <p>{restaurant.rating}</p>
+            <div className="image-container">
+              <img src={restaurant.image_url} />
+            </div>
+            <div className="info-container">
+
+            <p className="name">{restaurant.name}</p>
+            <p className="price">Price: {restaurant.price}</p>
+            <p className="rating">Rating: {restaurant.rating}</p>
+          </div>
             <div className="address">
                 <p>{restaurant.location.display_address[0]}</p>
                 <p>{restaurant.location.display_address[1]}</p>
@@ -33,14 +38,15 @@ export class RestaurantListing extends React.Component {
       return <h1>Loading</h1>
     }
     return (
-        <ul>{restaurantList}</ul>
+        <ul className="listings-container">{restaurantList}</ul>
     )
   }
 }
 
 export const mapStateToProps = state => ({
   restaurants: state.restaurants,
-  loading: state.loading
+  loading: state.loading,
+  listingsShowing: state.listingsShowing
 })
 
 export default connect(mapStateToProps)(RestaurantListing);

@@ -22,7 +22,7 @@ class Recipe extends React.Component {
       </li>
     })
     return (
-      <ul>{recipesList}</ul>
+      <ul className="ind-recipes-container">{recipesList}</ul>
     )
   }
 }

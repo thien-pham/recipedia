@@ -1,0 +1,61 @@
+.listings-container
+  list-style-type: none
+  display: flex
+  flex-direction: column
+  width: 50vw
+  padding-left: 0
+  padding-right: 0
+  margin-left: 0
+  margin-bottom: 0
+  -webkit-margin-before: 0
+  margin-top: 90px
+  margin-right: auto
+  .restaurant-container
+    border-top: 1px solid $blue-dark
+    border-bottom: 1px solid $blue-dark
+    height: 200px
+    width: 100%
+    margin: 0 25px
+    display: flex
+    align-items: center
+    font-family: 'Roboto'
+    .info-container
+      display: flex
+      flex-direction: column
+      text-align: left
+      justify-content: flex-start !important
+      align-items: flex-start !important
+      .price,.name,.rating
+        margin: 0
+      .price
+        color: green
+        font-size: 24px
+      .rating
+        color: #d32323 !important
+        font-size: 24px
+      .name
+        text-decoration: none
+        color: black
+        font-size: 32px
+    .address
+      text-align: right
+      display: flex
+      flex-direction: column
+      margin-left: auto
+      p
+        width: 100%
+        margin: 5px 0
+    .image-container
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 150px
+      width: 150px
+      overflow: hidden
+      border-radius: 5px
+      margin-left: 25px
+      margin-right: 25px
+      img
+        flex-shrink: 0
+        min-width: 100%
+        min-height: 100%
