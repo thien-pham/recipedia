@@ -11,18 +11,22 @@ export class Restaurant extends React.Component {
 
     return (
       <div className="restaurant-page">
-        <h1>{name}</h1>
-        <p className="rating">{rating}</p>
-        <img src={image_url} alt=""/>
-        <p className="price">{price}</p>
-        <div className="address-container">
-          <p>{display_address[0]}</p>
-          <p>{display_address[1]}</p>
-          <p>{display_phone}</p>
+        <div className="info-container">
+          <h1>{name}</h1>
+          <p className="rating">Rating: <span className="red">{rating}</span></p>
+          <p className="price">{price}</p>
+          <div className="image-container">
+            <img src={image_url} alt=""/>
+          </div>
+          <div className="address-container">
+            <p>{display_address[0]}</p>
+            <p>{display_address[1]}</p>
+            <p>{display_phone}</p>
+          </div>
         </div>
         <div className="recipes-container">
-            <Recipe restaurantId={id} />
-            <RecipeForm restaurantId={id} />
+            <Recipe className="recipe" restaurantId={id} />
+            <RecipeForm className="recipe-form" restaurantId={id} />
         </div>
       </div>
     )
