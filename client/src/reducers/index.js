@@ -73,7 +73,8 @@ const reducer = (state = initialState, action) => {
     case SELECT_RESTAURANT:
       return {
         ...state,
-        selectRestaurant: state.restaurants.find(r => action.restaurant.id === r.id)
+        selectRestaurant: state.restaurants.find(r => action.restaurant.id === r.id),
+        currentRecipes: {...initialState.currentRecipes}
       }
     default:
       return state;

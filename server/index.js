@@ -59,18 +59,6 @@ app.post('/api/restaurants', (req, res) => {
 })
 
 app.put('/api/restaurants/:restaurantId', (req, res) => {
-    // Restaurant
-		// 	.findOneAndUpdate({yelpId: req.params.restaurantId}, {$set: req.body})
-		// 	.exec()
-		// 	.then(restaurant => {
-    //     console.log(restaurant);
-    //   restaurant.recipes.push(req.body)
-		// 	return restaurant.save();
-    // }).then(restaurant => {
-    //   res.status(201).json(restaurant);
-    // }).catch(err => {
-    //   res.status(500).json({error: '⛔ You really did it now ⛔'})
-    // })
     console.log(req.params.restaurantId);
     Restaurant
       .findOneAndUpdate({yelpId: req.params.restaurantId},
@@ -91,27 +79,6 @@ app.put('/api/restaurants/:restaurantId', (req, res) => {
   );
 })
 
-// app.put('/api/restaurants', (req, res) => {
-// 	if((Restaurant.find({'yelpId': req.body.yelpId}).count()) > 0) {
-// 		// throw new Error('Woah kid, that\'s already an entry');
-// 		res.status(500);
-// 	}
-// 	else {
-// 		const {name, ingredients, instructions, cookingTime} = req.body.recipes[0];
-// 		Restaurant
-// 			.findOneandUpdate(
-// 				{yelpId: req.body.yelpId},
-// 				{$set: {recipes: [ name, ingredients, instructions, cookingTime ]}
-// 			})
-// 			.then(restaurant => {
-// 				res.status(201).json(restaurant.apiRepr());
-// 			})
-// .catch(err => {
-// 	res.status(500).json({error: '⛔ You really did it now ⛔'})
-// 			})
-// 		}
-// })
-
 app.get('/api/restaurants/:id', (req, res) => {
   Restaurant
     .findByYelpId(req.params.id).then(data => {
@@ -129,8 +96,6 @@ app.delete('/api/restaurants/:id', (req, res) => {
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// Unhandled requests which aren't for the API should serve index.html so
-// client-side routing using browserHistory can function
 app.get(/^(?!\/api(\/|$))/, (req, res) => {
   const index = path.resolve(__dirname, '../client/build', 'index.html');
   res.sendFile(index);
