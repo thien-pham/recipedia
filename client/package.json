@@ -1,6 +1,9 @@
 {
   "name": "thinkful-full-stack-template-client",
   "version": "0.1.0",
+  "engines": {
+    "node": "7.9.0"
+  },
   "private": true,
   "devDependencies": {
     "enzyme": "^2.8.2",
