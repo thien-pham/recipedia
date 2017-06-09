@@ -316,6 +316,81 @@
     color: white;
     border-radius: 5px; }
 
+#navb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  z-index: 999; }
+  #navb .what {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1em;
+    color: white; }
+
+.overlay-info {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: #072836;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 1000; }
+  .overlay-info .content {
+    color: black;
+    background: #fff;
+    position: relative;
+    height: auto;
+    width: 600px;
+    border-radius: 3px;
+    top: 15%;
+    margin: auto auto;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
+    .overlay-info .content .centered {
+      color: white;
+      background-color: #072836;
+      margin: 0;
+      padding: 0.4em;
+      text-align: center;
+      font-size: 2.4em;
+      font-weight: 300;
+      opacity: 0.8;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 3px 3px 0 0; }
+    .overlay-info .content .red {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: #072836;
+      background-color: white;
+      padding-left: 25px; }
+    .overlay-info .content .information {
+      padding: 15px 40px 30px;
+      margin: 0;
+      font-weight: 300;
+      font-size: 1.15em; }
+      .overlay-info .content .information a {
+        font-size: 0.8em;
+        background: #95a5a6;
+        padding: 0.5em 2em;
+        margin-bottom: 50px;
+        border-radius: 3px; }
+      .overlay-info .content .information p {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 2em;
+        text-align: justify; }
+      .overlay-info .content .information ul {
+        margin-bottom: -30px;
+        padding: 0 0 30px 20px;
+        text-align: left; }
+        .overlay-info .content .information ul li {
+          padding: 5px 0;
+          display: block;
+          list-style-type: disc;
+          line-height: 1.5em; }
+
 body {
   font-family: 'Roboto Condensed', sans-serif;
   padding: 0;

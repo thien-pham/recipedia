@@ -3,6 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {FETCH_RESTAURANT_REQUEST, FETCH_RESTAURANT_SUCCESS, FETCH_RESTAURANT_FAILURE, fetchRestaurants} from '../actions'
 import Link from 'react-router-dom';
+import TopNav from './TopNav';
+import InfoModal from './InfoModal';
 
 export class Searchbar extends React.Component {
   constructor(props) {
@@ -20,8 +22,10 @@ export class Searchbar extends React.Component {
     return this.props.dispatch(fetchRestaurants(query))
   }
   render() {
+
     return(
       <div className="overlay">
+        <TopNav />
         <h1 className="title centered"><span className="red">Recipe</span>dia</h1>
 
       <form ref={form => this.form = form} className="search-bar" onSubmit={e=>{this.onSearch(e)}}>

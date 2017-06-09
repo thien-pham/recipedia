@@ -14,6 +14,10 @@ export const SUBMIT_RECIPE_FAILURE = 'SUBMIT_RECIPE_FAILURE'
 export const submitRecipeFailure = (errorMessage) => ({type: SUBMIT_RECIPE_FAILURE, errorMessage})
 export const SUBMIT_RECIPE_SUCCESS = 'SUBMIT_RECIPE_SUCCESS'
 export const submitRecipeSuccess = (restaurant) => ({type: SUBMIT_RECIPE_SUCCESS, restaurant})
+export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
+export const toggleInfoModal = () => ({
+    type: TOGGLE_INFO_MODAL
+});
 
 const headers = {
   'Accept': 'application/json',

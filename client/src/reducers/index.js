@@ -7,11 +7,13 @@ import {
   FETCH_RECIPE_SUCCESS,
   SELECT_RESTAURANT,
   SUBMIT_RECIPE_SUCCESS,
-  SUBMIT_RECIPE_FAILURE
+  SUBMIT_RECIPE_FAILURE,
+  TOGGLE_INFO_MODAL
 } from '../actions';
 
 const initialState = {
   loading: false,
+  showInfoModal: false,
   restaurants: [],
   error: null,
   selectRestaurant: null,
@@ -76,6 +78,10 @@ const reducer = (state = initialState, action) => {
         selectRestaurant: state.restaurants.find(r => action.restaurant.id === r.id),
         currentRecipes: {...initialState.currentRecipes}
       }
+    case TOGGLE_INFO_MODAL:
+      return Object.assign({}, state, {
+        showInfoModal: !state.showInfoModal
+      })
     default:
       return state;
   }

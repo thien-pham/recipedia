@@ -6,6 +6,9 @@ import RestaurantListing from './components/RestaurantListing';
 import './App.css';
 import Searchbar from './components/Searchbar';
 import Header from './components/Header';
+import InfoModal from './components/InfoModal';
+import TopNav from './components/TopNav';
+
 import {connect} from 'react-redux';
 
 
@@ -16,10 +19,15 @@ export function App(props) {
     searchBar = <Header/>;
     listings = RestaurantListing
   }
+  let infoModal;
+    if (props.showInfoModal) {
+        infoModal = <InfoModal />;
+    }
 
   return (
     <Router>
       <div>
+        {infoModal}
         {searchBar}
         <Route exact path="/" component={listings}/>
         <Route exact path="/:restaurantId" component={Restaurant}/>
@@ -30,7 +38,8 @@ export function App(props) {
 
 const mapStateToProps = state => ({
   restaurants: state.restaurants,
-  listingsShowing: state.listingsShowing
+  listingsShowing: state.listingsShowing,
+  showInfoModal: state.showInfoModal
 })
 
 export default connect(mapStateToProps)(App);
