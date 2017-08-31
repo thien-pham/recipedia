@@ -33,6 +33,8 @@ app.get('/api/yelp', (req, res, next) => {
     return res.json(data)
   });
 })
+
+
 app.post('/api/restaurants', (req, res) => {
 	if((Restaurant.find({'yelpId': req.body.yelpId}).count()) > 0) {
 		throw new Error('Woah kid, that\'s already an entry');
@@ -83,7 +85,8 @@ app.get('/api/restaurants/:id', (req, res) => {
   Restaurant
     .findByYelpId(req.params.id).then(data => {
     res.status(200).json(data);
-  }).catch(err => res.status(400))
+  })
+  .catch(err => res.status(400))
 })
 
 app.delete('/api/restaurants/:id', (req, res) => {

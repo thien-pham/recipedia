@@ -14,6 +14,7 @@ import {
 const initialState = {
   loading: false,
   showInfoModal: false,
+  isSearching: false,
   restaurants: [],
   error: null,
   selectRestaurant: null,
@@ -32,7 +33,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentRecipes: {...state.currentRecipes},
-        listingsShowing: true
+        listingsShowing: true,
+        isSearching: true
       }
 
     case FETCH_RESTAURANT_FAILURE:
@@ -76,7 +78,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         selectRestaurant: state.restaurants.find(r => action.restaurant.id === r.id),
-        currentRecipes: {...initialState.currentRecipes}
+        currentRecipes: {...initialState.currentRecipes},
+        isSearching: false
       }
     case TOGGLE_INFO_MODAL:
       return Object.assign({}, state, {

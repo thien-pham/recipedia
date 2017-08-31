@@ -22,7 +22,7 @@ describe('<Searchbar />', () => {
         expect(callback).toHaveBeenCalledWith(query);
     });
 
-    xit('Should reset the input when the form is submitted', () => {
+    it('Should reset the input when the form is submitted', () => {
         const wrapper = mount(<Searchbar dispatch={() => {}}/>);
         const searchInput = wrapper.find('.search-input');
         const locationInput = wrapper.find('.location-input');

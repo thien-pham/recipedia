@@ -19,6 +19,7 @@ export const toggleInfoModal = () => ({
     type: TOGGLE_INFO_MODAL
 });
 
+
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'

@@ -52,7 +52,8 @@ export class Searchbar extends React.Component {
 }
 
  export const mapStateToProps = state => ({
-   restaurants: state.restaurants
+   restaurants: state.restaurants,
+   isSearching: state.isSearching
  })
 
 export default connect(mapStateToProps)(Searchbar);
