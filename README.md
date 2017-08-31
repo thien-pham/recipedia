@@ -4,8 +4,7 @@ Welcome to Recipedia, the app for the foodie on a budget. Get inspired to dine a
 ![app page](/client/public/recipedia.png)
 
 ## ABOUT
-Ever had that one restaurant dish that you're just itching to recreate, maybe with a few personal tweaks? Want to share that take with others or see what others have come up with before you? Enter Recipedia, the app which integrates its own database with the Yelp API to search for restaurants and return user-submitted recipes inspired by them.  
-[View the deployed site](https://shielded-spire-80737.herokuapp.com)!
+Ever had that one restaurant dish that you're just itching to recreate, maybe with a few personal tweaks? Want to share that take with others or see what others have come up with before you? Enter Recipedia, the app which integrates its own database with the Yelp API to search for restaurants and return user-submitted recipes inspired by them. [View the deployed site](https://shielded-spire-80737.herokuapp.com)!
 
 
 ## TECHNOLOGY
