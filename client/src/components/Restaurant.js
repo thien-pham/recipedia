@@ -1,17 +1,14 @@
-/* eslint-disable */
-import React from 'react';
-import {connect} from 'react-redux';
-import Searchbar from './Searchbar';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Recipe from './Recipe';
 import RecipeForm from './RecipeForm';
-import RestaurantListing from './RestaurantListing';
 
-export class Restaurant extends React.Component {
+export class Restaurant extends Component {
   render() {
     const {restaurant: {name, rating, image_url, price, location: {display_address}, display_phone, id}} = this.props;
-console.log(this.props.isSearching);
+    console.log(this.props.isSearching);
     return (
-<div>
+      <div>
       {/* {this.props.isSearching ?
         <RestaurantListing />
         : */}
@@ -34,8 +31,7 @@ console.log(this.props.isSearching);
               <RecipeForm className="recipe-form" restaurantId={id} />
           </div>
         </div>
-      // }
-    </div>
+      </div>
     )
   }
 }

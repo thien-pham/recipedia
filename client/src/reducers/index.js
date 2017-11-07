@@ -36,27 +36,30 @@ const reducer = (state = initialState, action) => {
         listingsShowing: true,
         isSearching: true
       }
-
     case FETCH_RESTAURANT_FAILURE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loading: false,
         error: true,
         listingsShowing: false
-      })
+      }
     case FETCH_RESTAURANT_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loading: false,
         error: null,
         restaurants: action.restaurants,
         listingsShowing: true
-      })
+      }
     case FETCH_RECIPE_FAILURE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loading: false,
         error: action.errorMessage.message
-      })
+      }
     case FETCH_RECIPE_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         loading: false,
         error: null,
         haveRecipe: action.recipes != null,
@@ -65,15 +68,15 @@ const reducer = (state = initialState, action) => {
           _id: action.recipes._id,
           yelpId: action.recipes.yelpId
         }
-      })
+      }
     case SUBMIT_RECIPE_SUCCESS:
-    return {
-      ...state,
-      currentRecipes: {...state.currentRecipes, ...action.recipes},
-      loading: false,
-      haveRecipe: true,
-      error: null
-    }
+      return {
+        ...state,
+        currentRecipes: {...state.currentRecipes, ...action.recipes},
+        loading: false,
+        haveRecipe: true,
+        error: null
+      }
     case SELECT_RESTAURANT:
       return {
         ...state,
@@ -82,9 +85,10 @@ const reducer = (state = initialState, action) => {
         isSearching: false
       }
     case TOGGLE_INFO_MODAL:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         showInfoModal: !state.showInfoModal
-      })
+      }
     default:
       return state;
   }

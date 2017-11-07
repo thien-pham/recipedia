@@ -1,10 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {toggleInfoModal} from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleInfoModal } from '../actions';
 
-// import './info-modal.css';
-
-export class InfoModal extends React.Component {
+export class InfoModal extends Component {
     hide(event) {
         event.preventDefault();
         this.props.dispatch(toggleInfoModal());

@@ -36,18 +36,18 @@ export const fetchRestaurants = searchQuery => dispatch => {
     return dispatch(fetchRestaurantSuccess(data.businesses))
   })
 }
+
 export const fetchRecipes = restaurantId => dispatch => {
   console.log(restaurantId);
   dispatch(fetchRestaurantRequest());
   fetch(`/api/restaurants/${restaurantId}`, {headers})
-  .then(res => res.json())
-
-  .then(data => {
-    if (!data) {
-      return dispatch(fetchRecipeFailure(new Error('Sorry, there\'s no recipes')))
-    }
-    console.log(data);
-    return dispatch(fetchRecipeSuccess(data))
+    .then(res => res.json())
+    .then(data => {
+      if (!data) {
+        return dispatch(fetchRecipeFailure(new Error('Sorry, there\'s no recipes')))
+      }
+      console.log(data);
+      return dispatch(fetchRecipeSuccess(data))
   }).catch(err => {
     console.log({err});
     return dispatch(fetchRecipeFailure())
@@ -61,9 +61,9 @@ export const submitRecipe = (recipe, restaurantId) => dispatch => {
     body: JSON.stringify(recipe),
     headers
   })
-  .then(res => res.json())
-  .then(data => {
-    dispatch(submitRecipeSuccess(data))
-    return dispatch(fetchRecipes(data.yelpId))
-  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch(submitRecipeSuccess(data))
+      return dispatch(fetchRecipes(data.yelpId))
+    })
 }

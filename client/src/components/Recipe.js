@@ -1,17 +1,18 @@
-/* eslint-disable */
-import React from 'react';
-import {connect} from 'react-redux';
-import {submitRecipe, fetchRecipes} from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions';
 
-class Recipe extends React.Component {
+class Recipe extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchRecipes(this.props.restaurantId))
   }
+
   render() {
     if(!this.props.haveRecipe) {
       return <p>{this.props.errorMessage}</p>
     }
+
     const recipesList = this.props.recipes.map((recipe, index) => {
       const {name, ingredients, cookingTime, instructions, photo} = recipe;
       return <li key={index}>
@@ -29,6 +30,7 @@ class Recipe extends React.Component {
     )
   }
 }
+
 export const mapStateToProps = (state, props) => ({
   recipes: state.currentRecipes.recipes,
   haveRecipe: state.haveRecipe,

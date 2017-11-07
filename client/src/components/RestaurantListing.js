@@ -1,23 +1,21 @@
-/* eslint-disable */
-import React from 'react';
-import {connect} from 'react-redux';
-// import {submitRecipe} from '../actions';
-import Searchbar from './Searchbar';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './restaurantListing.css';
-import {selectRestaurant} from '../actions';
+import { selectRestaurant } from '../actions';
 
-export class RestaurantListing extends React.Component {
+export class RestaurantListing extends Component {
   _selectRestaurant = restaurant => {
     this.props.dispatch(selectRestaurant(restaurant))
   }
+
   render() {
     const restaurantList = this.props.restaurants.map((restaurant, index) => {
       return (
         <Link key={index} to={`/${restaurant.id}`} onClick={e => this._selectRestaurant(restaurant)}>
           <li className="restaurant-container">
             <div className="image-container">
-              <img src={restaurant.image_url} />
+              <img src={restaurant.image_url} alt="restaurant"/>
             </div>
             <div className="info-container">
 
@@ -34,9 +32,11 @@ export class RestaurantListing extends React.Component {
         </Link>
       )
     })
+
     if(this.props.loading) {
       return <h1>Loading</h1>
     }
+
     return (
         <ul className="listings-container">{restaurantList}</ul>
     )

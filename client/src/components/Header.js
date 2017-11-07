@@ -1,10 +1,8 @@
-/* eslint-disable */
-import React from 'react';
-import {connect} from 'react-redux';
-import {FETCH_RESTAURANT_REQUEST, FETCH_RESTAURANT_SUCCESS, FETCH_RESTAURANT_FAILURE, fetchRestaurants} from '../actions'
-import Link from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchRestaurants } from '../actions';
 
-export class Searchbar extends React.Component {
+export class Searchbar extends Component {
   constructor(props) {
     super(props);
     this.onSearch = this.onSearch.bind(this)
@@ -19,9 +17,10 @@ export class Searchbar extends React.Component {
     this.form.reset();
     return this.props.dispatch(fetchRestaurants(query))
   }
+
   render() {
     return(
-      <form ref={form => this.form = form} className="header" onSubmit={e=>{this.onSearch(e)}}>
+      <form ref={form => this.form = form} className="header" onSubmit={e => {this.onSearch(e)}}>
         <div className="label-container">
           <label htmlFor="search-input">Find</label>
         </div>

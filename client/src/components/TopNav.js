@@ -1,11 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleInfoModal } from '../actions';
 
-import {toggleInfoModal} from '../actions';
-
-// import './top-nav.css';
-
-export class TopNav extends React.Component {
+export class TopNav extends Component {
     toggleInfoModal(event) {
         event.preventDefault();
         this.props.dispatch(toggleInfoModal());

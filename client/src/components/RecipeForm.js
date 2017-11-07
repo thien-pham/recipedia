@@ -1,10 +1,8 @@
-/* eslint-disable */
-import React from 'react';
-import {connect} from 'react-redux';
-import {submitRecipe} from '../actions'
-import Link from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { submitRecipe } from '../actions'
 
-export class RecipeForm extends React.Component {
+export class RecipeForm extends Component {
   constructor(props) {
     super(props);
     this.onAdd = this.onAdd.bind(this)
